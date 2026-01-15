@@ -1,41 +1,80 @@
 # LaraGigs app
 
-An app for listing Laravel gigs/jobs. This project is from my YouTube "[Laravel From Scratch 2022](https://www.youtube.com/watch?v=MYyJ4PuL4pY)" course.
+An app for listing Laravel gigs/jobs. This project is from a YouTuber.
 
-![Alt text](/public/images/screen.png "LaraGigs")
 
-## Usage
+---
+
+## Usage (Docker)
+
+This project is configured to run using **Docker**, **Docker Compose**, **Nginx**, **PHP-FPM**, and **MySQL**.
+
+---
 
 ### Database Setup
-This app uses MySQL. To use something different, open up config/Database.php and change the default driver.
 
-To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
+This app uses **MySQL (Docker container)**.
 
-### Migrations
-To create all the nessesary tables and columns, run the following
+To use something different, open up `config/database.php` and change the default driver.
+
+For MySQL (Docker):
+
+1. Copy the environment file:
+   ```bash
+   cp .env.example .env
+    ```
+
+2. Update database credentials in .env:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
 ```
-php artisan migrate
+### Build & Run the Containers
+
+1. Build and start the application:
+
+```bash
+docker compose up -d
 ```
 
-### Seeding The Database
-To add the dummy listings with a single user, run the following
-```
-php artisan db:seed
+2. Generate the application key:
+```bash
+docker exec -it laravel-app php artisan key:generate
 ```
 
+3. Migrations
+
+i. To create all the necessary tables and columns, run:
+
+```bash
+docker exec -it laravel-app php artisan migrate
+```
+ii. Seeding The Database
+
+To add the dummy listings with a single user, run:
+```bash
+docker exec -it laravel-app php artisan db:seed
+```
 ### File Uploading
-When uploading listing files, they go to "storage/app/public". Create a symlink with the following command to make them publicly accessible.
-```
-php artisan storage:link
-```
 
-### Running The App
-Upload the files to your document root, Valet folder or run 
-```
-php artisan serve
-```
+When uploading listing files, they go to storage/app/public.
 
-## License
+Create a symlink with the following command to make them publicly accessible:
+```bash
+docker exec -it laravel-app php artisan storage:link
+```
+Running The App
 
-The LaraGigs app is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Laragigs-docker-project
+Once the containers are running, access the application in your browser:
+
+http://localhost
+
+
+To stop the containers:
+```bash
+docker compose down
+```
