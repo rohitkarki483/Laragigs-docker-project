@@ -71,6 +71,8 @@ Create a symlink with the following command to make them publicly accessible:
 ```bash
 docker exec -it laravel-app php artisan storage:link
 ```
+---
+
 ### Running The App
 
 Once the containers are running, access the application in your browser:
