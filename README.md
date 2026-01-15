@@ -61,6 +61,8 @@ To add the dummy listings with a single user, run:
 ```bash
 docker exec -it laravel-app php artisan db:seed
 ```
+---
+
 ### File Uploading
 
 When uploading listing files, they go to storage/app/public.
@@ -69,14 +71,14 @@ Create a symlink with the following command to make them publicly accessible:
 ```bash
 docker exec -it laravel-app php artisan storage:link
 ```
-Running The App
+### Running The App
 
 Once the containers are running, access the application in your browser:
 
 http://localhost
 
 
-To stop the containers:
+### To stop the containers:
 ```bash
 docker compose down
 ```
