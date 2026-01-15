@@ -79,6 +79,7 @@ Once the containers are running, access the application in your browser:
 
 http://localhost
 
+---
 
 ### To stop the containers:
 ```bash
