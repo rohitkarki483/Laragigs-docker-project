@@ -1,4 +1,4 @@
-# LaraGigs app
+## LaraGigs app
 
 An app for listing Laravel gigs/jobs. This project is from a YouTuber.
 
