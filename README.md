@@ -1,6 +1,6 @@
 ## LaraGigs app
 
-An app for listing Laravel gigs/jobs. This project is from a YouTuber.
+For this project, I used an existing Laravel gig/job listing application as the application layer and implemented the DevOps aspects, including Docker containerization, Docker Compose orchestration, Nginx reverse proxy configuration, MySQL integration.
 
 
 ---
