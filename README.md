@@ -33,6 +33,8 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
+---
+
 ### Build & Run the Containers
 
 1. Build and start the application:
