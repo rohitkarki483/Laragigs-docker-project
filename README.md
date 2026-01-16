@@ -57,11 +57,9 @@ docker exec -it laravel-app php artisan key:generate
 # Run Migration
 
 docker exec -it laravel-app php artisan migrate
-```
-#Seeding The Database
 
-To add the dummy listings with a single user, run:
-```bash
+#Seeding The Database
+#To add the dummy listings with a single user, run:
 docker exec -it laravel-app php artisan db:seed
 # Create storage symlink
 docker exec -it laravel-app php artisan storage:link
