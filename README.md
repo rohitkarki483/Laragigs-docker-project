@@ -2,6 +2,7 @@
 
 ## Project Overview
 This project is all about the DevOps & Orchestration of a Laravel-based job posting website. Although my application layer is built upon the existing work of the LaraGigs repository on Github maintained by Brad Traversy (https://github.com/bradtraversy/laragigs) , I have designed a customized containerized environment to run it on. It enables me to run the application on any system with ease using Docker.
+
 ---
 
 ##  Key Implementation Features:
@@ -12,6 +13,7 @@ This project is all about the DevOps & Orchestration of a Laravel-based job post
 **Nginx Reverse Proxy:** Configured Nginx to handle web requests and serve as a gateway to the PHP-FPM container.
 
 **Database Integration:** Set up a persistent MySQL container for data storage.
+
 ---
 
 ## Project Structure
@@ -28,6 +30,7 @@ This project follows a standard Laravel structure, with the addition of custom o
 ├── artisan                 # Laravel CLI tool
 └── ... (Rest of Laravel Application)
 ```
+
 ---
 
 ## Docker Setup
