@@ -33,10 +33,15 @@ This project follows a standard Laravel structure, with the addition of custom o
 
 ---
 
-## Docker Setup
-* **Docker** and **Docker Compose** installed on your machine.
-* **Git** installed.
-### 1. Installation & Environment Setup
+## Prerequisites
+Ensure the following tools are installed on your system:
+* Docker
+* Docker Compose
+* Git
+* 
+---
+
+## 1. Installation & Environment Setup
 I Cloned the repository and move into the directory:
 
 ```bash
@@ -59,14 +64,15 @@ DB_PASSWORD=laravel_pass
 ```
 ---
 
-### 2. Build & Run the Containers
+## 2. Build & Run the Containers
 
 Build and start the application:
 
 ```bash
 docker compose up -d
 ```
-### 3. Application Initialization
+## 3. Application Initialization
+Run the following commands to initialize the Laravel application inside the container: 
 ```bash
 #Install PHP dependencies
 docker exec -it laravel-app composer install
@@ -85,16 +91,15 @@ docker exec -it laravel-app php artisan storage:link
 ```
 ---
 
-
-### 4. Running The App
-
+## 4. Running The Application
 Once the containers are running, access the application in your browser:
 
 http://localhost
 
 ---
 
-### 5. To stop the containers:
+### 5. Stopping the Application
+To stop and remove the containers:
 ```bash
 docker compose down
 ```
