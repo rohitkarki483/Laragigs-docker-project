@@ -1,18 +1,31 @@
 # LaraGigs - Dockerized Laravel Application
 
 ## Project Overview
-This project is all about the DevOps & Orchestration of a Laravel-based job posting website. Although my application layer is built upon the existing work of the LaraGigs repository on Github maintained by Brad Traversy (https://github.com/bradtraversy/laragigs) , I have designed a customized containerized environment to run it on. It enables me to run the application on any system with ease using Docker.
+This project is all about the DevOps & Orchestration of a Laravel-based job posting website. Although my application layer is built upon the existing work of the LaraGigs repository on Github maintained by Brad Traversy (https://github.com/bradtraversy/laragigs) , The focus of this project is  deployed an application in a production-like environment where each service runs in its own container, ensuring scalability, portability, and consistency across different systems.
 
 ---
 
-##  Key Implementation Features:
-**Docker Containerization:** Custom Docker images were created for the environment of the application.
+## Tech Stack
+* **Backend Framework:** Laravel
+* **Web Server:** Nginx
+* **Application Runtime:** PHP-FPM
+* **Database:** MySQL
+* **Containerization & Orchestration:** Docker & Docker Compose
 
-**Orchestration:** Used Docker Compose to manage multi-container services.
+---
+## Architecture Overview
 
-**Nginx Reverse Proxy:** Configured Nginx to handle web requests and serve as a gateway to the PHP-FPM container.
+Client Browser
+      |
+      v
+   Nginx (Reverse Proxy)
+      |
+      v
+  PHP-FPM (Laravel App)
+      |
+      v
+   MySQL (Database)
 
-**Database Integration:** Set up a persistent MySQL container for data storage.
 
 ---
 
@@ -28,27 +41,29 @@ This project follows a standard Laravel structure, with the addition of custom o
 ├── docker-compose.yml      # Orchestration file for all services
 ├── .env.example            # Template for environment variables
 ├── artisan                 # Laravel CLI tool
+├── README.md               # Project documentation
 └── ... (Rest of Laravel Application)
 ```
 
 ---
 
 ## Prerequisites
-Ensure the following tools are installed on your system:
+ the following tools should be installed on your system:
 * Docker
 * Docker Compose
 * Git
-* 
+
 ---
 
-## 1. Installation & Environment Setup
-I Cloned the repository and move into the directory:
+## Setup Instructions
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/rohitkarki483/Laragigs-docker-project.git
 cd Laragigs-docker-project
 ```
-Prepare the environment file:
+### 2. Configure Environment Variables
+Copy the example environment file:
 ```bash
 cp .env.example .env
 ```
@@ -64,14 +79,12 @@ DB_PASSWORD=laravel_pass
 ```
 ---
 
-## 2. Build & Run the Containers
-
-Build and start the application:
-
+### 3. Build & Run the Containers
 ```bash
 docker compose up -d
 ```
-## 3. Application Initialization
+## 4. Application Initialization
+
 Run the following commands to initialize the Laravel application inside the container: 
 ```bash
 #Install PHP dependencies
@@ -91,10 +104,11 @@ docker exec -it laravel-app php artisan storage:link
 ```
 ---
 
-## 4. Running The Application
-Once the containers are running, access the application in your browser:
-
+### 5. Access the Application
+access the application in your browser:
+```bash
 http://localhost
+```
 
 ---
 
@@ -103,3 +117,9 @@ To stop and remove the containers:
 ```bash
 docker compose down
 ```
+---
+
+## Conclusion
+This project demonstrates the implementation of a DevOps process in deploying a Laravel web app utilizing Docker.The setup focuses on container orchestration and reproducibility, aligning with modern industry best practices for scalable and maintainable deployments.
+
+
