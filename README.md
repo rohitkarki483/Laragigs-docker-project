@@ -55,11 +55,9 @@ docker exec -it laravel-app composer install
 docker exec -it laravel-app php artisan key:generate
 
 # Run Migration
-
 docker exec -it laravel-app php artisan migrate
 
 #Seeding The Database
-
 docker exec -it laravel-app php artisan db:seed
 
 # Create storage symlink
