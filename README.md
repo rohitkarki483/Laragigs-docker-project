@@ -40,7 +40,7 @@ This project follows a standard Laravel structure, with the addition of custom o
 I Cloned the repository and move into the directory:
 
 ```bash
-git clone [https://github.com/rohitkarki483/Laragigs-docker-project.git](https://github.com/rohitkarki483/Laragigs-docker-project.git)
+git clone https://github.com/rohitkarki483/Laragigs-docker-project.git
 cd Laragigs-docker-project
 ```
 Prepare the environment file:
