@@ -1,30 +1,34 @@
-## LaraGigs app
+# LaraGigs - Dockerized Laravel Application
 
-For this project, I used an existing Laravel gig/job listing application as the application layer and implemented the DevOps aspects, including Docker containerization, Docker Compose orchestration, Nginx reverse proxy configuration, MySQL integration.
+## Project Overview
 
+This project focuses on the DevOps and Orchestration of a Laravel-based job listing platform. While the application layer (LaraGigs) is based on an existing Laravel project [LaraGigs repository by Brad Traversy](https://github.com/bradtraversy/laragigs) and implemented a custom-built containerized environment. This setup ensures that the application is portable, scalable, and easy to deploy across any system using Docker.
 
----
+##  Key Implementation Features:
+**Docker Containerization:** Created custom Docker images for the application environment.
 
-## Usage (Docker)
+**Orchestration:** Used Docker Compose to manage multi-container services.
 
-This project is configured to run using **Docker**, **Docker Compose**, **Nginx**, **PHP-FPM**, and **MySQL**.
+**Nginx Reverse Proxy:** Configured Nginx to handle web requests and serve as a gateway to the PHP-FPM container.
 
----
+**Database Integration:** Implemented a persistent MySQL container for data storage.
 
-### Database Setup
+## Docker Setup
+* **Docker** and **Docker Compose** installed on your machine.
+* **Git** installed.
+### 1. Installation & Environment Setup
+I Clone the repository and move into the directory:
 
-This app uses **MySQL (Docker container)**.
+```bash
+git clone [https://github.com/rohitkarki483/Laragigs-docker-project.git](https://github.com/rohitkarki483/Laragigs-docker-project.git)
+cd Laragigs-docker-project
+```
+Prepare the environment file:
+```bash
+cp .env.example .env
+```
 
-To use something different, open up `config/database.php` and change the default driver.
-
-For MySQL (Docker):
-
-1. Copy the environment file:
-   ```bash
-   cp .env.example .env
-    ```
-
-2. Update database credentials in .env:
+ Update database credentials in .env:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -37,41 +41,33 @@ DB_PASSWORD=laravel_pass
 
 ### Build & Run the Containers
 
-1. Build and start the application:
+Build and start the application:
 
 ```bash
 docker compose up -d
 ```
-
-2. Generate the application key:
+### Application Initialization
 ```bash
+#Install PHP dependencies
+docker exec -it laravel-app composer install
+
+# Generate the application key:
 docker exec -it laravel-app php artisan key:generate
-```
 
-3. Migrations
+# Run Migration
 
-i. To create all the necessary tables and columns, run:
-
-```bash
 docker exec -it laravel-app php artisan migrate
 ```
-ii. Seeding The Database
+#Seeding The Database
 
 To add the dummy listings with a single user, run:
 ```bash
 docker exec -it laravel-app php artisan db:seed
-```
----
-
-### File Uploading
-
-When uploading listing files, they go to storage/app/public.
-
-Create a symlink with the following command to make them publicly accessible:
-```bash
+# Create storage symlink
 docker exec -it laravel-app php artisan storage:link
 ```
 ---
+
 
 ### Running The App
 
