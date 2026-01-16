@@ -39,14 +39,14 @@ DB_PASSWORD=laravel_pass
 ```
 ---
 
-### Build & Run the Containers
+### 2. Build & Run the Containers
 
 Build and start the application:
 
 ```bash
 docker compose up -d
 ```
-### Application Initialization
+### 3. Application Initialization
 ```bash
 #Install PHP dependencies
 docker exec -it laravel-app composer install
@@ -69,7 +69,7 @@ docker exec -it laravel-app php artisan storage:link
 ---
 
 
-### Running The App
+### 4. Running The App
 
 Once the containers are running, access the application in your browser:
 
