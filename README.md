@@ -91,16 +91,16 @@ Run the following commands to initialize the Laravel application inside the cont
 docker compose exec app composer install
 
 # Generate the application key:
-docker exec -it laravel-app php artisan key:generate
+docker compose exec app php artisan key:generate
 
 # Run Migration
-docker exec -it laravel-app php artisan migrate
+docker compose exec app php artisan migrate
 
 #Seeding The Database
-docker exec -it laravel-app php artisan db:seed
+docker compose exec app php artisan db:seed
 
 # Create storage symlink
-docker exec -it laravel-app php artisan storage:link
+docker compose exec app php artisan storage:link
 ```
 ---
 
