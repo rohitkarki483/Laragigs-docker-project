@@ -1,5 +1,5 @@
-# Use official PHP 8.1 FPM image
-FROM php:8.1-fpm
+#Version 
+FROM php:8.4-fpm
 
 # Set working directory
 WORKDIR /var/www
@@ -14,22 +14,21 @@ RUN apt-get update && apt-get install -y \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
     libonig-dev \
+    libxml2-dev \
     libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql mbstring zip
+    && docker-php-ext-install gd pdo pdo_mysql mbstring zip bcmath
 
 # Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy app files
+# Copy application code into image
 COPY . .
 
-RUN composer install
-
-# Application permissions
-RUN chown -R www-data:www-data /var/www \
+# Fix permissions 
+RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 EXPOSE 9000
-
 CMD ["php-fpm"]
+
