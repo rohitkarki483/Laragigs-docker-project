@@ -77,10 +77,10 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user #Give Yourname
 DB_PASSWORD=laravel_pass #Set Password
 
-#MYSQL_DATABASE=laragigs
-#MYSQL_USER= #Give Yourname
-#MYSQL_PASSWORD= #Set Password
-#MYSQL_ROOT_PASSWORD= #Set Password
+MYSQL_DATABASE=laragigs
+MYSQL_USER= #Give Yourname
+MYSQL_PASSWORD= #Set Password
+MYSQL_ROOT_PASSWORD= #Set Password
 ```
 
 ---
@@ -105,8 +105,6 @@ docker compose exec app php artisan migrate
 #Seeding The Database
 docker compose exec app php artisan db:seed
 
-# Create storage symlink
-docker compose exec app php artisan storage:link
 ```
 ---
 
