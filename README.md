@@ -88,7 +88,7 @@ docker compose up -d
 Run the following commands to initialize the Laravel application inside the container: 
 ```bash
 #Install PHP dependencies
-docker exec -it laravel-app composer install
+docker compose exec app composer install
 
 # Generate the application key:
 docker exec -it laravel-app php artisan key:generate
