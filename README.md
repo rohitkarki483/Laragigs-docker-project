@@ -76,7 +76,13 @@ DB_PORT=3306
 DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user #Give Yourname
 DB_PASSWORD=laravel_pass #Set Password
+
+#MYSQL_DATABASE=laragigs
+#MYSQL_USER= #Give Yourname
+#MYSQL_PASSWORD= #Set Password
+#MYSQL_ROOT_PASSWORD= #Set Password
 ```
+
 ---
 
 ### 3. Build & Run the Containers
